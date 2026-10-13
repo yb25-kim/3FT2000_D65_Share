@@ -337,7 +337,7 @@ A. Disassembling the sensor voids the A/S policy and may cause the sensor calibr
 
 | Date | Description |
 |---|---|
-| 2026.10.13 | Minor wording revisions |
+| 2026.10.13 | Minor wording revisions (Current version) |
 | 2026.10.12 | AVERAGE FILTER SET |
 | 2026.07.24 |  |
 | 2026.07.02 | CAN MODE options updated (CAN FD BRS OFF / BRS ON) |
