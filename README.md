@@ -1,6 +1,6 @@
 # Smart 3-axis Force Torque Sensor 3FT2000-D65-C (ENG)
 
-Rev. 2026.10.12
+Rev. 2026.10.13
 
 - [Foreword](#foreword)
   - [Notice](#notice)
@@ -185,7 +185,7 @@ Drawing File :
 | CAN MODE |  |  |  | 0x04 | 0x01<br>0x02 |  |  |
 | SAMPLE RATE SET |  |  |  | 0x05 | 0x01<br>0x02<br>0x03 <br>0x04 |  |  |
 | FD PARAMETER SET |  |  |  | 0x06 | 0x01<br>0x02<br>0x03<br>0x04 |  |  |
-| AVERAGE FILTER SET |  |  |  | 0x07 | 0x01~0xff (Effective from 2026.10.12) |  |  |
+| AVERAGE FILTER SET |  |  |  | 0x07 | 0x01~0xff |  |  |
 | TX CAN ID CONFIRM |  | 0xFF | 0xFE | 0xFC | 0x01<br>0x02 |  |  |
 | FACTORY RESET |  | 0xFF | 0xFE | 0xFD |  |  |  |
 
@@ -197,7 +197,7 @@ Drawing File :
 | CAN MODE | 0x01 : CAN 2.0 mode<br>0x02 : CAN FD mode BRS OFF (Effective from 2026.07.02)<br>0x03 : CAN FD mode BRS ON (Effective from 2026.07.02) |
 | SAMPLE RATE SET | 0x01 :RATE 100Hz  <br>0x02 :RATE 250Hz<br>0x03 :RATE 500Hz<br>0x04 :RATE 1000Hz (Default) |
 | FD PARAMETER SET | 0x01 :FDSET1 <br>0x02 :FDSET2<br>0x03 :FDSET3 (Default) <br>0x04 :FDSET4 |
-| AVERAGE FILTER SET | 0x01~0xff (Default = 0x01) (Effective from 2026.10.12) |
+| AVERAGE FILTER SET | 0x01~0xff  (Effective from 2026.10.12) <br>(0x01 : Default, no filtering) |
 | TX CAN ID CONFIRM | 0x01 :TX CAN 2.0 ID : data field not used (DLC = 0)<br>0x02 :TX CAN FD ID : data field not used  (DLC = 0) |
 | FACTORY RESET | FDSET3 (Default) <br>RATE 1000Hz (Default)<br>Zero Bias (Default) <br>current TX CAN 2.0 ID : 0x260 , current TX CAN FD ID : 0x360 (Default)<br> FILTER : 0x01 (Default)|
 
@@ -337,6 +337,7 @@ A. Disassembling the sensor voids the A/S policy and may cause the sensor calibr
 
 | Date | Description |
 |---|---|
+| 2026.10.13 | Minor wording revisions |
 | 2026.10.12 | AVERAGE FILTER SET |
 | 2026.07.24 |  |
 | 2026.07.02 | CAN MODE options updated (CAN FD BRS OFF / BRS ON) |
