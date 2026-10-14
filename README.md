@@ -1,6 +1,6 @@
 # Smart 3-axis Force Torque Sensor 3FT2000-D65-C (ENG)
 
-Rev. 2026.10.13
+Rev. 2026.10.14
 
 - [Foreword](#foreword)
   - [Notice](#notice)
@@ -155,11 +155,11 @@ Drawing File :
 - CAN-2.0
   - Nominal bitrate : 1Mbps
   - Data bitrate : 1Mbps
-  - RX ID MASK : 0x220~0x22F, 0x320~0x32F
+  - RX ID MASK : 0x220\~0x22F, 0x320\~0x32F
 - CAN-FD
   - Nominal bitrate : 1Mbps
   - Data bitrate : 4Mbps (BRS mode)
-  - RX ID MASK : 0x220~0x22F, 0x320~0x32F
+  - RX ID MASK : 0x220\~0x22F, 0x320\~0x32F
 - PCAN : CAN-FD PARAMETER SETTING
 
 ![PCAN CAN-FD parameter setting 1](img/pcan-fd-setting-1.png)
@@ -214,8 +214,8 @@ Drawing File :
 |---|---|---|---|---|---|---|---|---|
 | FINT | 2.0 ID 0x260<br>FD ID 0x360 | 6 | Fx(LSB) | Fx(MSB) | Fy(LSB) | Fy(MSB) | Fz(LSB) | Fz(MSB) |
 
-- ~~Fx Output = Fx(MSB)\*256 + Fx(LSB)~~
-- ~~Fy Output = Fy(MSB)\*256 + Fy(LSB)~~
+- Fx Output = 0
+- Fy Output = 0
 - Fz Output = Fz(MSB)\*256 + Fz(LSB)
 - Force[N] = Force Output/10
 
@@ -230,7 +230,7 @@ Drawing File :
 
 - Tx Output = Tx(MSB)\*256 + Tx(LSB)
 - Ty Output = Ty(MSB)\*256 + Ty(LSB)
-- ~~Tz Output = Tz(MSB)\*256 + Tz(LSB)~~
+- Tz Output = 0
 - Torque[Nm] = Torque Output/100
 
 > [!NOTE]
@@ -248,12 +248,12 @@ Drawing File :
 |---|---|---|---|---|---|---|
 | CINT | Tx(LSB) | Tx(MSB) | Ty(LSB) | Ty(MSB) | Tz(LSB) | Tz(MSB) |
 
-- ~~Fx Output = Fx(MSB)\*256 + Fx(LSB)~~
-- ~~Fy Output = Fy(MSB)\*256 + Fy(LSB)~~
+- Fx Output = 0
+- Fy Output = 0
 - Fz Output = Fz(MSB)\*256 + Fz(LSB)
 - Tx Output = Tx(MSB)\*256 + Tx(LSB)
 - Ty Output = Ty(MSB)\*256 + Ty(LSB)
-- ~~Tz Output = Tz(MSB)\*256 + Tz(LSB)~~
+- Tz Output = 0
 - Force[N] = Force Output/10
 - Torque[Nm] = Torque Output/100
 
@@ -268,18 +268,15 @@ Drawing File :
 |---|---|---|---|---|---|---|---|---|
 | CFLOAT | FD ID 0x362 | 24 | Fx | Fy | Fz | Tx | Ty | Tz |
 
-- ~~`uint32_t Fx_Raw = (Fx(MSB) << 24) | (Fx(3rd) << 16) | (Fx(2nd) << 8) | (Fx(LSB));`~~
-- ~~`float Fx_Output = *(float *)&Fx_Raw ;`~~
-- ~~`uint32_t Fy_Raw = (Fy(MSB) << 24) | (Fy(3rd) << 16) | (Fy(2nd) << 8) | (Fy(LSB));`~~
-- ~~`float Fy_Output = *(float *)&Fy_Raw ;`~~
+- `float Fx_Output = 0 ;`
+- `float Fy_Output = 0 ;`
 - `uint32_t Fz_Raw = (Fz(MSB) << 24) | (Fz(3rd) << 16) | (Fz(2nd) << 8) | (Fz(LSB));`
 - `float Fz_Output = *(float *)&Fz_Raw ;`
 - `uint32_t Tx_Raw = (Tx(MSB) << 24) | (Tx(3rd) << 16) | (Tx(2nd) << 8) | (Tx(LSB));`
 - `float Tx_Output = *(float *)&Tx_Raw ;`
 - `uint32_t Ty_Raw = (Ty(MSB) << 24) | (Ty(3rd) << 16) | (Ty(2nd) << 8) | (Ty(LSB));`
 - `float Ty_Output = *(float *)&Ty_Raw ;`
-- ~~`uint32_t Tz_Raw = (Tz(MSB) << 24) | (Tz(3rd) << 16) | (Tz(2nd) << 8) | (Tz(LSB));`~~
-- ~~`float Tz_Output = *(float *)&Tz_Raw ;`~~
+- `float Tz_Output = 0 ;`
 - Force[N] = Force Output
 - Torque[Nm] = Torque Output
 
@@ -337,7 +334,8 @@ A. Disassembling the sensor voids the A/S policy and may cause the sensor calibr
 
 | Date | Description |
 |---|---|
-| 2026.10.13 | Minor wording revisions (Current version) |
+| 2026.10.14 | Unused axes (Fx, Fy, Tz) shown as = 0; RX ID MASK display fixed (Current version) |
+| 2026.10.13 | Minor wording revisions |
 | 2026.10.12 | AVERAGE FILTER SET |
 | 2026.07.24 |  |
 | 2026.07.02 | CAN MODE options updated (CAN FD BRS OFF / BRS ON) |
